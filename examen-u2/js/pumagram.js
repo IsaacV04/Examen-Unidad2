@@ -6,14 +6,14 @@ const comentariosInput = document.querySelector('.comment-input');
 
 meGusta.addEventListener('click', () => {
     console.log('Click en el boton');
+    const likes = parseInt(contador.textContent);
 
-    if(meGusta) {
-        contador.textContent = '1';
-    }
-
-    if(contador.textContent === '1') {
+    if (meGusta.textContent === 'Me gusta') {
+        contador.textContent = likes + 1;
         meGusta.textContent = 'No me gusta';
-        return;
+    } else {
+        contador.textContent = likes - 1;
+        meGusta.textContent = 'Me gusta';
     }
 })
 
@@ -23,14 +23,15 @@ console.log(comentarios.textContent);
 
 tapImg.addEventListener("dblclick", function() {
     console.log('Doble click en la imagen');
+    
+    const likes = parseInt(contador.textContent);
 
-    if(tapImg) {
-        contador.textContent = '2';
-    }
-
-    if(contador.textContent === '2') {
+    if (meGusta.textContent === 'Me gusta') {
+        contador.textContent = likes + 1;
         meGusta.textContent = 'No me gusta';
-        return;
+    } else {
+        contador.textContent = likes - 1;
+        meGusta.textContent = 'Me gusta';
     }
 });
 
@@ -39,7 +40,7 @@ publicar.addEventListener('click', () => {
     const comentario = comentariosInput.value;
 
     saveComents(comentario);
-    document.querySelector('.comment-input')
+    document.getElementById('commets').reset(); 
     console.log('comentario subido', comentario);
 })
 
@@ -62,3 +63,4 @@ window.onload = function() {
         console.log('No hay comentarios subidos');
     }
 }
+
